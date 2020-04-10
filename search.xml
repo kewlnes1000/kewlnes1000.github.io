@@ -64,13 +64,13 @@
 <p>等待30秒，查看是否安裝成功</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">k3s kubectl get node</span><br></pre></td></tr></table></figure>
 <p>完成</p>
-<h2 id="安裝Kubernetes-dashboard"><a href="#安裝Kubernetes-dashboard" class="headerlink" title="安裝Kubernetes-dashboard"></a>安裝Kubernetes-dashboard</h2><p>取得最新版Kubernetes-dashboard的<code>recommended.yaml</code><br>需安裝weget，<code>yum install -y weget</code></p>
+<h2 id="安裝Kubernetes-dashboard"><a href="#安裝Kubernetes-dashboard" class="headerlink" title="安裝Kubernetes-dashboard"></a>安裝Kubernetes-dashboard</h2><p>取得最新版Kubernetes-dashboard的<code>recommended.yaml</code><br>需安裝 weget，<code>yum install -y weget</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">GITHUB_URL=https://github.com/kubernetes/dashboard/releases</span><br><span class="line">VERSION_KUBE_DASHBOARD=$(curl -w '%&#123;url_effective&#125;' -I -L -s -S $&#123;GITHUB_URL&#125;/latest -o /dev/null | sed -e 's|.*/||')</span><br><span class="line">weget https://raw.githubusercontent.com/kubernetes/dashboard/$&#123;VERSION_KUBE_DASHBOARD&#125;/aio/deploy/recommended.yaml</span><br></pre></td></tr></table></figure>
-<p>編輯 recommended.yaml ，修改成<code>type: NodePort</code>&amp;<code>nodePort: 自定義port</code></p>
+<p>編輯 recommended.yaml ，修改成 <code>type: NodePort</code> &amp; <code>nodePort: 自定義port</code><br>這邊使用 NodePort 對外開放port，讓遠程使用者可以操作dashboard(Kubernetes-dashboard預設只開放給localhost操作)</p>
 <p><code>vi dashboard.admin-user.yml</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="string">．．．</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">8443</span></span><br><span class="line">      <span class="attr">nodePort:</span> <span class="number">8787</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">k8s-app:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">NodePort</span></span><br></pre></td></tr></table></figure>
 
-<p>啟用recommended.yaml</p>
+<p>啟用 recommended.yaml</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo k3s kubectl create -f ./recommended.yaml</span><br></pre></td></tr></table></figure>
 
 <p>建立 dashboard.admin-user.yml 並存檔</p>
