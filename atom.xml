@@ -5,9 +5,9 @@
   <subtitle>A parallel world used to recording.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://kewlnes1000.github.io/"/>
   <updated>2020-04-10T19:14:03.923Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://kewlnes1000.github.io/</id>
   
   <author>
     <name>kewlnes2000</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>初探Kubernetes</title>
-    <link href="http://yoursite.com/2020/04/10/%E5%88%9D%E6%8E%A2Kubernetes/"/>
-    <id>http://yoursite.com/2020/04/10/%E5%88%9D%E6%8E%A2Kubernetes/</id>
+    <link href="https://kewlnes1000.github.io/2020/04/10/%E5%88%9D%E6%8E%A2Kubernetes/"/>
+    <id>https://kewlnes1000.github.io/2020/04/10/%E5%88%9D%E6%8E%A2Kubernetes/</id>
     <published>2020-04-10T15:31:00.000Z</published>
     <updated>2020-04-10T19:14:03.923Z</updated>
     
@@ -39,21 +39,21 @@
     </summary>
     
     
-      <category term="DevOps" scheme="http://yoursite.com/categories/DevOps/"/>
+      <category term="DevOps" scheme="https://kewlnes1000.github.io/categories/DevOps/"/>
     
     
-      <category term="k8s" scheme="http://yoursite.com/tags/k8s/"/>
+      <category term="k8s" scheme="https://kewlnes1000.github.io/tags/k8s/"/>
     
-      <category term="kubernetes" scheme="http://yoursite.com/tags/kubernetes/"/>
+      <category term="kubernetes" scheme="https://kewlnes1000.github.io/tags/kubernetes/"/>
     
-      <category term="k3s" scheme="http://yoursite.com/tags/k3s/"/>
+      <category term="k3s" scheme="https://kewlnes1000.github.io/tags/k3s/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/04/10/hello-world/"/>
-    <id>http://yoursite.com/2020/04/10/hello-world/</id>
+    <link href="https://kewlnes1000.github.io/2020/04/10/hello-world/"/>
+    <id>https://kewlnes1000.github.io/2020/04/10/hello-world/</id>
     <published>2020-04-10T14:02:44.000Z</published>
     <updated>2020-04-10T14:02:44.064Z</updated>
     
