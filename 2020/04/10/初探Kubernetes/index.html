@@ -558,26 +558,33 @@
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
   <script>
+  if(!firebase.apps.length){
     firebase.initializeApp({
       apiKey   : 'AIzaSyB1h6JREaaXv2q_kFeW86db02-4KUafEyA',
       projectId: 'githubpage-fd241'
     });
+  }
 
     function getCount(doc, increaseCount) {
       // IncreaseCount will be false when not in article page
       return doc.get().then(d => {
         var count = 0;
+        console.log("d",d);
+        console.log("exists",!d.exists);
         if (!d.exists) { // Has no data, initialize count
           if (increaseCount) {
+            console.log("has no data");
+
             doc.set({
               count: 1
             });
             count = 1;
           }
         } else { // Has data
+          console.log("has data");
           count = d.data().count;
           if (increaseCount) {
             // If first view this article
@@ -602,10 +609,17 @@
     (function() {
       var db = firebase.firestore();
       var articles = db.collection('articles');
+      console.log("db",db);
+      console.log("articles",articles);
+      console.log("theme.firestore.collection",'articles');
+      console.log("isPost",CONFIG.page.isPost);
 
       if (CONFIG.page.isPost) { // Is article page
         var title = document.querySelector('.post-title').innerText.trim();
         var doc = articles.doc(title);
+        console.log("title",title);
+        console.log("doc",doc);
+        console.log("doc.get()",doc.get());
         var increaseCount = CONFIG.hostname === location.hostname;
         if (localStorage.getItem(title)) {
           increaseCount = false;
